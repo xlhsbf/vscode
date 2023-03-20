@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>实验 2 使用 Vue 指令实现数据展示 </title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/phone.css"/>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<template id="root">
+			<div class="box">
+				<!-- 分类标题 -->
+				<div class="box_hd">
+					<h2 class="title">
+						手机
+					</h2>
+					<div class="more">
+						<a href="#">
+							查看更多
+						</a>
+					</div>
+				</div>
+				<div class="">
+					<!-- 左边的大图片 -->
+					<div class="box_left">
+						<img src="images/ad1.png" width="240">
+					</div>
+					<!-- 右边通过v-for循环展示出的内容 -->
+					<div class="box_right">
+						<ul class="">
+							<!-- v-for key值 -->
+							<li class="phone_item" v-for="phone in phoneList" :key="phone.id">
+								<a href="#">
+									<!-- 图片 -->
+									<div class="ph">
+										<img :src="phone.img" width="160">
+									</div>
+									<!-- 手机名字 -->
+									<div class="phone_title">{{phone.title}}</div>
+									<!-- 备注 -->
+									<p class="desc">{{phone.desc}}</p>
+									<!-- 价格 -->
+									<p class="price">
+										<span >{{phone.price}}</span>
+										元起
+									</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</template>
+		<script src="js/phone.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
